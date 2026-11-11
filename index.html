@@ -3,269 +3,477 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Compassion Digital creates modern, professional websites that turn ideas into digital reality.">
+<meta name="theme-color" content="#030712">
 <title>Compassion Digital | Turning Ideas Into Digital Reality</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- background:#050b14;
- color:#f5f8ff;
- font-family:Inter,Arial,sans-serif;
- overflow-x:hidden;
+ background:#030712;color:#fff;
+ font-family:Arial,Helvetica,sans-serif;
+ overflow-x:hidden
 }
-a{text-decoration:none;color:inherit}
-:root{--blue:#36c5ff;--cyan:#91eaff}
+:root{--blue:#36c5ff;--cyan:#a5efff}
+#particles{
+ position:fixed;inset:0;width:100%;height:100%;
+ pointer-events:none;z-index:2
+}
 nav{
- position:fixed;top:0;left:0;width:100%;z-index:10;
- display:flex;justify-content:space-between;align-items:center;
- padding:20px 7%;background:rgba(5,11,20,.86);
- backdrop-filter:blur(14px);border-bottom:1px solid #ffffff12;
+ position:fixed;z-index:20;top:0;width:100%;
+ padding:20px 7%;display:flex;
+ justify-content:space-between;align-items:center;
+ background:rgba(3,7,18,.75);
+ backdrop-filter:blur(16px);
+ border-bottom:1px solid #36c5ff25
 }
-.logo{font-size:21px;font-weight:800;letter-spacing:-1px}
+.logo{font-size:19px;font-weight:900;letter-spacing:2px}
 .logo span{color:var(--blue)}
-.navlinks{display:flex;gap:25px;font-size:13px;color:#c5d4e5}
-.navlinks a:hover{color:var(--blue)}
-.menu{display:none;background:none;border:0;color:white;font-size:25px}
+nav a{color:#d5e7f7;text-decoration:none;
+ margin-left:22px;font-size:11px;letter-spacing:1px}
+nav a:hover{color:var(--blue)}
+section{
+ min-height:100vh;position:relative;
+ padding:130px 8%;display:flex;
+ flex-direction:column;justify-content:center;
+ overflow:hidden
+}
 .hero{
- min-height:100vh;display:flex;align-items:center;
- padding:130px 9% 90px;position:relative;overflow:hidden;
- background:
- linear-gradient(90deg,rgba(3,9,18,.96),rgba(3,9,18,.67),rgba(3,9,18,.28)),
- url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=85') center/cover;
+ background:linear-gradient(90deg,#030712f5,#0307129c),
+ url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=90")
+ center/cover;
 }
 .hero:after{
- content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(transparent 75%,#050b14);
+ content:"";position:absolute;inset:0;
+ background:radial-gradient(circle at 70% 45%,#168dff35,transparent 40%);
+ pointer-events:none
 }
-.hero-content{position:relative;z-index:1;max-width:750px}
-.tag{
- color:var(--cyan);font-size:12px;letter-spacing:4px;
- text-transform:uppercase;margin-bottom:25px;
+.grid{
+ position:absolute;inset:0;
+ background-image:
+ linear-gradient(#36c5ff13 1px,transparent 1px),
+ linear-gradient(90deg,#36c5ff13 1px,transparent 1px);
+ background-size:55px 55px;
+ transform:perspective(500px) rotateX(55deg) scale(1.8);
+ transform-origin:bottom;
+ animation:grid 7s linear infinite
 }
-h1{font-size:clamp(43px,7vw,83px);line-height:1.06;letter-spacing:-4px}
-h1 span{color:var(--blue)}
-.typing{display:inline}
+@keyframes grid{
+ to{background-position:0 55px}
+}
+.hero-content{position:relative;z-index:3;max-width:1000px}
+.eyebrow{
+ color:var(--blue);letter-spacing:6px;
+ font-size:11px;margin-bottom:28px
+}
+h1{
+ font-size:clamp(48px,10vw,120px);
+ line-height:.92;letter-spacing:-5px;
+ font-weight:950
+}
+.blue{color:var(--blue);text-shadow:0 0 35px #36c5ff70}
+.letter{
+ display:inline-block;opacity:0;
+ transform:translateY(35px) rotateX(70deg);
+ animation:write .55s cubic-bezier(.2,.8,.2,1) forwards
+}
+@keyframes write{
+ to{opacity:1;transform:translateY(0) rotateX(0)}
+}
+.type-line{
+ margin-top:28px;font-size:clamp(17px,2.5vw,26px);
+ color:#e2f4ff;min-height:35px
+}
+.cursor{
+ display:inline-block;background:var(--blue);
+ width:2px;height:25px;vertical-align:middle;
+ animation:blink .7s infinite
+}
+@keyframes blink{50%{opacity:0}}
 .hero p{
- color:#c4d1df;font-size:17px;line-height:1.8;
- max-width:580px;margin:25px 0 35px;
+ color:#c2d3e5;line-height:1.9;
+ max-width:580px;margin-top:20px;font-size:16px
 }
-.buttons{display:flex;gap:15px;flex-wrap:wrap}
+.actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:35px}
 .btn{
- padding:15px 24px;border-radius:5px;font-size:13px;
- font-weight:700;display:inline-block;transition:.3s;
+ display:inline-block;padding:16px 27px;
+ text-decoration:none;font-size:12px;
+ font-weight:bold;letter-spacing:1px;
+ transition:.3s;border-radius:3px
 }
-.primary{background:var(--blue);color:#03101a;box-shadow:0 0 25px #36c5ff44}
-.secondary{border:1px solid #ffffff55}
-.btn:hover{transform:translateY(-4px);box-shadow:0 0 25px #36c5ff66}
-section{padding:100px 9%}
-.section-tag{color:var(--blue);font-size:12px;letter-spacing:4px;margin-bottom:15px}
-h2{font-size:clamp(30px,5vw,49px);letter-spacing:-2px;margin-bottom:20px}
-.intro{color:#aebed0;line-height:1.8;max-width:650px}
-.about{background:#091321}
-.about-grid{
- display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center;
+.primary{
+ background:var(--blue);color:#00101a;
+ box-shadow:0 0 30px #36c5ff50
 }
-.about-image{
- min-height:390px;border-radius:12px;
- background:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1100&q=85') center/cover;
- box-shadow:0 0 45px #36c5ff18;
+.primary:hover{transform:translateY(-5px);box-shadow:0 0 50px #36c5ff}
+.secondary{border:1px solid #ffffff65;color:white}
+.secondary:hover{border-color:var(--blue);color:var(--blue)}
+.scroll{
+ position:absolute;bottom:28px;left:8%;
+ color:#8baec8;font-size:10px;letter-spacing:4px;
+ animation:float 2s infinite
 }
-.services{background:#050b14}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:45px}
-.card{
- padding:30px;border:1px solid #ffffff18;border-radius:10px;
- background:linear-gradient(145deg,#102033,#08111e);
- transition:.3s;min-height:220px;
-}
-.card:hover{transform:translateY(-8px);border-color:var(--blue);box-shadow:0 10px 35px #36c5ff16}
-.card .number{font-size:13px;color:var(--blue);margin-bottom:25px}
-.card h3{font-size:20px;margin-bottom:15px}
-.card p{font-size:14px;color:#aebed0;line-height:1.8}
+@keyframes float{50%{transform:translateY(8px)}}
+
+/* CINEMATIC IMAGE SCENES */
 .showcase{
- min-height:390px;display:flex;align-items:center;
- background:linear-gradient(90deg,#06101deF,#06101d88),
- url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85') center/cover;
+ align-items:center;text-align:center;
+ background:#050d1b
 }
-.showcase-content{max-width:700px}
-.showcase p{color:#c2d1e0;line-height:1.8;margin-top:15px}
-.process{background:#091321}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:45px}
-.step{border-top:2px solid var(--blue);padding-top:20px}
-.step strong{font-size:30px;color:var(--blue)}
-.step h3{margin:15px 0 10px}
-.step p{font-size:13px;color:#aebed0;line-height:1.7}
+.scene-tag{
+ color:var(--blue);font-size:11px;
+ letter-spacing:6px;margin-bottom:25px
+}
+.scene-title{
+ font-size:clamp(36px,7vw,85px);
+ font-weight:950;line-height:1.1;
+ max-width:1050px
+}
+.scene-title .blue{display:inline}
+.scene-copy{
+ max-width:650px;color:#a6bdd2;
+ line-height:1.9;margin-top:25px
+}
+.photo{
+ width:min(950px,100%);
+ height:360px;margin-top:50px;
+ position:relative;overflow:hidden;
+ border:1px solid #36c5ff55;
+ border-radius:9px;
+ box-shadow:0 0 55px #168dff20
+}
+.photo img{
+ width:100%;height:100%;object-fit:cover;
+ animation:zoom 16s ease-in-out infinite alternate;
+ filter:brightness(.7) saturate(1.2)
+}
+@keyframes zoom{
+ from{transform:scale(1)}
+ to{transform:scale(1.2)}
+}
+.photo:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(0deg,#030712b0,transparent 65%)
+}
+.photo-label{
+ position:absolute;z-index:2;bottom:25px;left:25px;
+ color:white;font-size:clamp(18px,3vw,30px);
+ font-weight:900;letter-spacing:3px
+}
+.light{
+ position:absolute;top:0;left:-100%;
+ width:50%;height:100%;
+ background:linear-gradient(90deg,transparent,#36c5ff28,transparent);
+ transform:skewX(-20deg);
+ animation:light 5s infinite
+}
+@keyframes light{to{left:150%}}
+
+/* SERVICES */
+.services{
+ background:#030712;text-align:center;align-items:center
+}
+.service-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:20px;width:100%;max-width:1100px;margin-top:55px
+}
+.card{
+ min-height:250px;text-align:left;padding:30px;
+ background:linear-gradient(145deg,#10233a,#07101e);
+ border:1px solid #36c5ff35;
+ position:relative;overflow:hidden;transition:.5s
+}
+.card:hover{
+ transform:translateY(-12px) scale(1.02);
+ border-color:var(--blue);
+ box-shadow:0 20px 60px #168dff20
+}
+.card small{color:var(--blue);letter-spacing:3px}
+.card h3{font-size:23px;margin:28px 0 15px}
+.card p{color:#9bb2c8;font-size:14px;line-height:1.8}
+.card:after{
+ content:"";position:absolute;top:0;left:-100%;
+ height:2px;width:100%;background:var(--blue);
+ transition:.7s
+}
+.card:hover:after{left:0}
+
+/* FINAL */
 .contact{
- text-align:center;
- background:radial-gradient(ellipse at center,#10304a 0%,#050b14 70%);
+ align-items:center;text-align:center;
+ background:linear-gradient(#030712b8,#030712f0),
+ url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85")
+ center/cover fixed
 }
-.contact .intro{margin:0 auto 30px}
+.contact h2{
+ font-size:clamp(40px,8vw,100px);
+ font-weight:950;line-height:1.05
+}
+.contact p{color:#b2c8db;margin:25px 0}
 footer{
- padding:30px 9%;display:flex;justify-content:space-between;
- gap:15px;flex-wrap:wrap;color:#8294a9;font-size:12px;
- border-top:1px solid #ffffff15;
+ padding:30px 15px;text-align:center;
+ background:#02040a;color:#7893ad;
+ font-size:12px;position:relative;z-index:3
 }
-.reveal{opacity:1;transform:none}
-.js-ready .reveal{
- opacity:0;transform:translateY(25px);
- transition:opacity .7s ease,transform .7s ease;
+
+/* SCROLL ANIMATION */
+.reveal{
+ opacity:0;transform:translateY(65px);
+ transition:1s ease
 }
-.js-ready .reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:800px){
- .navlinks{
- display:none;position:absolute;top:70px;left:0;width:100%;
- padding:25px;background:#081321;flex-direction:column;
- }
- .navlinks.open{display:flex}
- .menu{display:block}
- .about-grid{grid-template-columns:1fr}
- .cards{grid-template-columns:1fr}
- .steps{grid-template-columns:1fr 1fr}
+.reveal.show{opacity:1;transform:translateY(0)}
+@media(max-width:750px){
+ nav{padding:17px 5%}
+ nav a{margin-left:9px;font-size:9px}
+ .logo{font-size:14px}
+ section{padding:110px 7%}
  h1{letter-spacing:-2px}
- section{padding:75px 7%}
- .hero{padding-left:7%;padding-right:7%}
+ .service-grid{grid-template-columns:1fr}
+ .photo{height:230px}
+ .contact{background-attachment:scroll}
 }
-@media(max-width:450px){.steps{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){
- *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+ *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
 </style>
 </head>
 
 <body>
+<canvas id="particles"></canvas>
+
 <nav>
- <a href="#" class="logo">COMPASSION<span>.</span></a>
- <button class="menu" aria-label="Open menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
- <div class="navlinks">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#process">Our Process</a>
-  <a href="#contact">Contact</a>
+ <div class="logo">COMPASSION<span>.</span></div>
+ <div>
+  <a href="#home">HOME</a>
+  <a href="#services">SERVICES</a>
+  <a href="#contact">CONTACT</a>
  </div>
 </nav>
 
-<header class="hero" id="home">
+<!-- OPENING -->
+<section class="hero" id="home">
+ <div class="grid"></div>
  <div class="hero-content">
-  <div class="tag reveal">WELCOME TO COMPASSION DIGITAL</div>
-  <h1 class="reveal"><span id="headline"></span><br><span>Digital Reality.</span></h1>
-  <p class="reveal">We create modern, professional websites that help businesses stand out, connect with customers and grow in the digital world.</p>
-  <div class="buttons reveal">
+  <div class="eyebrow">WELCOME TO A NEW DIGITAL ERA</div>
+  <h1 id="mainTitle"></h1>
+  <div class="type-line">
+   <span id="typing"></span><span class="cursor"></span>
+  </div>
+  <p>
+   We transform ideas into powerful digital experiences.
+   Discover professional website design and development
+   that gives your business a place to shine online.
+  </p>
+  <div class="actions">
    <a class="btn primary" href="#contact">START YOUR PROJECT ↗</a>
-   <a class="btn secondary" href="#services">EXPLORE OUR SERVICES</a>
+   <a class="btn secondary" href="#services">EXPLORE OUR WORLD</a>
   </div>
  </div>
-</header>
+ <div class="scroll">SCROLL TO DISCOVER ↓</div>
+</section>
 
-<section class="about" id="about">
- <div class="about-grid">
-  <div class="reveal">
-   <div class="section-tag">WHO WE ARE</div>
-   <h2>Ideas deserve a powerful digital presence.</h2>
-   <p class="intro">Compassion Digital is focused on helping businesses and individuals build their presence online. We combine creative thinking, modern design and technology to create meaningful digital experiences.</p>
-  </div>
-  <div class="about-image reveal"></div>
+<!-- SCENE 1 -->
+<section class="showcase reveal">
+ <div class="scene-tag">01 — THE VISION</div>
+ <h2 class="scene-title animated-title"
+ data-text="EVERY GREAT IDEA STARTS WITH A VISION."></h2>
+ <p class="scene-copy">
+  Your business has a story. Your website should tell it
+  in a way people remember.
+ </p>
+ <div class="photo">
+  <img loading="lazy"
+  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=85"
+  alt="Global digital network">
+  <div class="light"></div>
+  <div class="photo-label">A WORLD OF POSSIBILITIES.</div>
  </div>
 </section>
 
-<section class="services" id="services">
- <div class="section-tag reveal">WHAT WE DO</div>
- <h2 class="reveal">Digital solutions built to make an impact.</h2>
- <p class="intro reveal">From the first idea to the finished website, we help bring your vision online.</p>
- <div class="cards">
-  <div class="card reveal">
-   <div class="number">01 / DESIGN</div>
+<!-- SCENE 2 -->
+<section class="showcase reveal">
+ <div class="scene-tag">02 — THE EXPERIENCE</div>
+ <h2 class="scene-title animated-title"
+ data-text="DON'T JUST EXIST ONLINE. MAKE AN IMPACT."></h2>
+ <p class="scene-copy">
+  Capture attention. Build trust. Create a digital
+  experience that makes people want to know more.
+ </p>
+ <div class="photo">
+  <img loading="lazy"
+  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=85"
+  alt="Creative technology team">
+  <div class="light"></div>
+  <div class="photo-label">CREATIVITY MEETS TECHNOLOGY.</div>
+ </div>
+</section>
+
+<!-- SCENE 3 -->
+<section class="showcase reveal">
+ <div class="scene-tag">03 — THE FUTURE</div>
+ <h2 class="scene-title animated-title"
+ data-text="YOUR NEXT CHAPTER STARTS HERE."></h2>
+ <p class="scene-copy">
+  A strong online presence can open doors to new
+  customers, new opportunities and new growth.
+ </p>
+ <div class="photo">
+  <img loading="lazy"
+  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85"
+  alt="Electronic technology and circuits">
+  <div class="light"></div>
+  <div class="photo-label">BUILD WHAT COMES NEXT.</div>
+ </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services reveal" id="services">
+ <div class="scene-tag">04 — WHAT WE CREATE</div>
+ <h2 class="scene-title animated-title"
+ data-text="WE BUILD YOUR DIGITAL FUTURE."></h2>
+ <div class="service-grid">
+  <div class="card">
+   <small>01 / DESIGN</small>
    <h3>Website Design</h3>
-   <p>Modern and attractive website layouts designed to represent your brand professionally.</p>
+   <p>Modern, creative websites designed around your brand and your audience.</p>
   </div>
-  <div class="card reveal">
-   <div class="number">02 / DEVELOPMENT</div>
-   <h3>Website Development</h3>
-   <p>Responsive websites designed to work across phones, tablets and computers.</p>
+  <div class="card">
+   <small>02 / DEVELOPMENT</small>
+   <h3>Web Development</h3>
+   <p>Responsive websites designed for phones, tablets and computers.</p>
   </div>
-  <div class="card reveal">
-   <div class="number">03 / DIGITAL</div>
-   <h3>Online Presence</h3>
-   <p>Give your business a place online where customers can discover what you offer.</p>
+  <div class="card">
+   <small>03 / PRESENCE</small>
+   <h3>Business Websites</h3>
+   <p>Help your business establish a professional online identity.</p>
   </div>
  </div>
 </section>
 
-<section class="showcase">
- <div class="showcase-content reveal">
-  <div class="section-tag">THE NEXT GENERATION</div>
-  <h2>Your vision.<br><span style="color:var(--blue)">Our creativity.</span></h2>
-  <p>We believe every business deserves the opportunity to be seen, discovered and remembered.</p>
- </div>
-</section>
-
-<section class="process" id="process">
- <div class="section-tag reveal">HOW WE WORK</div>
- <h2 class="reveal">From concept to creation.</h2>
- <div class="steps">
-  <div class="step reveal"><strong>01</strong><h3>Discover</h3><p>We learn about your business and your vision.</p></div>
-  <div class="step reveal"><strong>02</strong><h3>Design</h3><p>We plan the look and experience of your website.</p></div>
-  <div class="step reveal"><strong>03</strong><h3>Create</h3><p>We bring the design to life and make it responsive.</p></div>
-  <div class="step reveal"><strong>04</strong><h3>Launch</h3><p>Your website is ready to meet the digital world.</p></div>
- </div>
-</section>
-
-<section class="contact" id="contact">
- <div class="section-tag reveal">LET'S BUILD SOMETHING</div>
- <h2 class="reveal">Your next idea starts here.</h2>
- <p class="intro reveal">Ready to give your business a professional online presence? Let's talk about your project.</p>
- <a class="btn primary reveal" href="https://wa.me/27643582350?text=Hello%20Compassion%20Digital%2C%20I%20am%20interested%20in%20a%20website.">CONTACT US ON WHATSAPP ↗</a>
+<!-- FINAL BRAND REVEAL -->
+<section class="contact reveal" id="contact">
+ <div class="scene-tag">05 — YOUR DIGITAL JOURNEY</div>
+ <h2 class="animated-title"
+ data-text="LET'S CREATE SOMETHING EXTRAORDINARY."></h2>
+ <p>Compassion Digital — Turning Ideas Into Digital Reality.</p>
+ <a class="btn primary"
+ href="https://wa.me/27643582350?text=Hello%20Compassion%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20website.">
+ LET'S TALK ON WHATSAPP ↗
+ </a>
+ <p>+27 64 358 2350</p>
 </section>
 
 <footer>
- <div>© 2026 COMPASSION DIGITAL</div>
- <div>Turning Ideas Into Digital Reality.</div>
- <div>WhatsApp: +27 64 358 2350</div>
+ © <span id="year"></span> Compassion Digital. All rights reserved.
 </footer>
 
 <script>
-document.body.classList.add('js-ready');
+// Write every character of a heading
+function writeLetters(element,text,speed=55){
+ element.innerHTML="";
+ let delay=0;
+ [...text].forEach(char=>{
+  const span=document.createElement("span");
+  span.className="letter";
+  span.textContent=char===" "?"\u00a0":char;
+  span.style.animationDelay=delay+"ms";
+  element.appendChild(span);
+  delay+=speed;
+ });
+}
 
-// Letter-by-letter headline
-const headline = document.getElementById('headline');
-const message = 'Turning Ideas Into';
-let letter = 0;
+// Main logo headline
+const title=document.getElementById("mainTitle");
+const first=document.createElement("div");
+const second=document.createElement("div");
+second.className="blue";
+title.append(first,second);
+writeLetters(first,"COMPASSION",75);
+setTimeout(()=>writeLetters(second,"DIGITAL.",75),900);
 
-function typeHeadline(){
- if(letter < message.length){
-  headline.textContent += message.charAt(letter);
-  letter++;
-  setTimeout(typeHeadline,65);
+// Self-writing tagline
+const phrases=[
+ "Turning Ideas Into Digital Reality.",
+ "Your Business Deserves To Be Seen.",
+ "Create Your Digital Future."
+];
+let phrase=0,index=0,deleting=false;
+const typing=document.getElementById("typing");
+
+function typeLoop(){
+ const current=phrases[phrase];
+ typing.textContent=current.substring(0,index);
+
+ if(!deleting){
+  index++;
+  if(index>current.length){
+   deleting=true;
+   setTimeout(typeLoop,1500);
+   return;
+  }
+ }else{
+  index--;
+  if(index<0){
+   index=0;
+   deleting=false;
+   phrase=(phrase+1)%phrases.length;
+  }
  }
+ setTimeout(typeLoop,deleting?30:70);
 }
-typeHeadline();
+setTimeout(typeLoop,2000);
 
-// Reveal sections as they enter the screen
-const items = document.querySelectorAll('.reveal');
-
-if('IntersectionObserver' in window){
- const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-   if(entry.isIntersecting){
-    entry.target.classList.add('visible');
-    observer.unobserve(entry.target);
-   }
-  });
- },{threshold:0.08});
-
- items.forEach(item=>observer.observe(item));
-}else{
- items.forEach(item=>item.classList.add('visible'));
+// Animate scene titles only when they enter the screen
+function revealTitle(element){
+ if(element.dataset.done)return;
+ element.dataset.done="yes";
+ writeLetters(element,element.dataset.text,38);
 }
 
-// Safety fallback: never leave the page hidden
-setTimeout(()=>{
- items.forEach(item=>item.classList.add('visible'));
-},2500);
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("show");
+   const heading=entry.target.querySelector(".animated-title");
+   if(heading)revealTitle(heading);
+  }
+ });
+},{threshold:.2});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+// Floating digital particles
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+let particles=[];
+
+function resize(){
+ canvas.width=innerWidth;
+ canvas.height=innerHeight;
+ particles=Array.from({length:65},()=>({
+  x:Math.random()*canvas.width,
+  y:Math.random()*canvas.height,
+  r:Math.random()*1.5+.3,
+  v:Math.random()*.4+.1
+ }));
+}
+addEventListener("resize",resize);
+resize();
+
+function animate(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ particles.forEach(p=>{
+  p.y-=p.v;
+  if(p.y<0){p.y=canvas.height;p.x=Math.random()*canvas.width}
+  ctx.beginPath();
+  ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+  ctx.fillStyle="rgba(54,197,255,.65)";
+  ctx.fill();
+ });
+ requestAnimationFrame(animate);
+}
+animate();
+
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
